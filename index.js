@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 app.use(cors()); // Enable CORS
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/start', (req, res) => {
     getPreviousData()
         .then(() => res.send("Data fetched successfully"))
         .catch((error) => {
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 // Start the HTTP server
 const server = http.createServer(app);
 server.listen(port, () => {
-    
+
     console.log(`Server running on http://localhost:${port}`);
     
 });
