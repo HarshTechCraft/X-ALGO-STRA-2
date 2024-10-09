@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "nodemailer": "^6.9.15",
+    "smartapi-javascript": "^1.0.27",
+    "speakeasy": "^2.0.0",
+    "ws": "^8.18.0"
+  }
+}
