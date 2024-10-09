@@ -129,6 +129,9 @@ const startWebSocket = (target, jwtToken, feedToken) => {
 
     const fetchDataAndConnectWebSocket = async () => {
         try {
+
+            console.log("Target is ",target)
+
             const web_socket = new WebSocketV2({
                 jwttoken: jwtToken,
                 apikey: apiKey,
@@ -147,10 +150,10 @@ const startWebSocket = (target, jwtToken, feedToken) => {
 
             web_socket.fetchData(json_req);
             web_socket.on("tick", receiveTick);
-
+            
             function receiveTick(data) {
                 // console.log(data.last_traded_price / 100);
-
+                
                 if ((data.last_traded_price) / 100 > target) {
                     sendEmail();
                     web_socket.close();
