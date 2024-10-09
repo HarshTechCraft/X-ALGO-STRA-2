@@ -149,7 +149,7 @@ const startWebSocket = (target, jwtToken, feedToken) => {
             web_socket.on("tick", receiveTick);
 
             function receiveTick(data) {
-                console.log(data.last_traded_price / 100);
+                // console.log(data.last_traded_price / 100);
 
                 if ((data.last_traded_price) / 100 > target) {
                     sendEmail();
