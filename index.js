@@ -372,7 +372,8 @@ const startWebSocket = (target, jwtToken, feedToken, negativeTarget) => {
 
     const fetchDataAndConnectWebSocket = async () => {
         try {
-            console.log("Target is ", target);
+            console.log("Target for positive ", target);
+            console.log("Target for nagative ", negativeTarget);
 
             web_socket = new WebSocketV2({
                 jwttoken: jwtToken,
