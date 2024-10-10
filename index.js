@@ -360,18 +360,19 @@ const getPreviousData = async () => {
         const target = close * 1.01;
         const negativeTarget = close * 0.99;
 
-        startWebSocket(target, jwtToken, feedToken , negativeTarget);
+        startWebSocket(close ,target, jwtToken, feedToken , negativeTarget);
     } catch (error) {
         console.log("Error fetching data:", error);
     }
 };
 
 // Function to start WebSocket server and connect
-const startWebSocket = (target, jwtToken, feedToken, negativeTarget) => {
+const startWebSocket = (close ,target, jwtToken, feedToken, negativeTarget) => {
     const { WebSocketV2 } = require("smartapi-javascript");
 
     const fetchDataAndConnectWebSocket = async () => {
         try {
+            console.log("Previous day close", close)
             console.log("Target for positive ", target);
             console.log("Target for nagative ", negativeTarget);
 
