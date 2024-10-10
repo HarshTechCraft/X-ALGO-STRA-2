@@ -357,11 +357,11 @@ const getPreviousData = async () => {
         );
 
         const close = formattedData[0].close;
-        const target = close * 1.001;
-        const negativeTarget = close * 0.099;
+        const target = close * 1.0001;
+        const negativeTarget = close * 9.9;
 
         startWebSocket(close ,target, jwtToken, feedToken , negativeTarget);
-    } catch (error) {
+    } catch (error) {   
         console.log("Error fetching data:", error);
     }
 };
