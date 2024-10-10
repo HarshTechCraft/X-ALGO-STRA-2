@@ -451,14 +451,14 @@ const sendEmail = () => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: "your_email@gmail.com", // Replace with your email
-            pass: "your_email_password", // Replace with your password
+            user: "harshdvadhavana26@gmail.com",
+            pass: "cjlt acjg ymwe apzn",
         },
     });
 
     const mailOptions = {
-        from: "your_email@gmail.com", // Replace with your email
-        to: "recipient_email@gmail.com", // Replace with recipient's email
+        from: "harshdvadhavana26@gmail.com",
+        to: "harshkumar.vadhavana120072@marwadiuniversity.ac.in",
         subject: "Market Price Alert",
         text: "Market price exceeded +5% of previous day's close.",
         html: "<b>Market price exceeded +5% of previous day's close.</b>",
