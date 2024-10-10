@@ -358,15 +358,16 @@ const getPreviousData = async () => {
 
         const close = formattedData[0].close;
         const target = close * 1.01;
+        const negativeTarget = close * 0.99;
 
-        startWebSocket(target, jwtToken, feedToken);
+        startWebSocket(target, jwtToken, feedToken , negativeTarget);
     } catch (error) {
         console.log("Error fetching data:", error);
     }
 };
 
 // Function to start WebSocket server and connect
-const startWebSocket = (target, jwtToken, feedToken) => {
+const startWebSocket = (target, jwtToken, feedToken, negativeTarget) => {
     const { WebSocketV2 } = require("smartapi-javascript");
 
     const fetchDataAndConnectWebSocket = async () => {
@@ -394,7 +395,7 @@ const startWebSocket = (target, jwtToken, feedToken) => {
 
             function receiveTick(data) {
                 console.log(data.last_traded_price/100)
-                if (data.last_traded_price / 100 > target) {
+                if (data.last_traded_price / 100 > target || data.last_traded_price /100 < negativeTarget) {
                     sendEmail();
                     web_socket.close();
                 }
