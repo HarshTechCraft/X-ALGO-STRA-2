@@ -317,6 +317,9 @@ const getPreviousData = async () => {
         const fromDate = getPreviousDayFormattedDate();
         const toDate = fromDate;
 
+        console.log("FromDate ", fromDate)
+        console.log("ToDate ", toDate)
+
         const data2 = JSON.stringify({
             exchange: "NSE",
             symboltoken: "99926000",
