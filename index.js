@@ -357,7 +357,7 @@ const getPreviousData = async () => {
         );
 
         const close = formattedData[0].close;
-        const target = close * 1.0001;
+        const target = close * 1.01;
         const negativeTarget = close * 9.9;
 
         startWebSocket(close ,target, jwtToken, feedToken , negativeTarget);
@@ -458,7 +458,7 @@ const sendEmail = () => {
 
     const mailOptions = {
         from: "harshdvadhavana26@gmail.com",
-        to: "harshkumar.vadhavana120072@marwadiuniversity.ac.in",
+        to: "harshkumar.vadhavana120072@marwadiuniversity.ac.in",  
         subject: "Market Price Alert",
         text: "Market price exceeded +5% of previous day's close.",
         html: "<b>Market price exceeded +5% of previous day's close.</b>",
