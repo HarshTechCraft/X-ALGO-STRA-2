@@ -323,7 +323,7 @@ const getPreviousData = async () => {
         const data2 = JSON.stringify({
             exchange: "NSE",
             symboltoken: "99926000",
-            interval: "ONE_MINUTE",
+            interval: "ONE_DAY",
             fromdate: fromDate,
             todate: toDate,
         });
@@ -347,7 +347,7 @@ const getPreviousData = async () => {
 
         const ceresponse = await axios(config2);
         const jsonData = ceresponse.data;
-
+        console.log(jsonData)
         const formattedData = jsonData.data.map(
             ([timestamp, open, high, low, close, volume]) => ({
                 timestamp,
@@ -399,8 +399,9 @@ const startWebSocket = (close ,target, jwtToken, feedToken, negativeTarget) => {
             web_socket.on("tick", receiveTick);
 
             function receiveTick(data) {
-                console.log(data.last_traded_price/100)
-                if (data.last_traded_price / 100 > target || data.last_traded_price /100 < negativeTarget) {
+                console.log(data.last_traded_price/100 ," Target " , target ," NegativeTarget ",negativeTarget/10)
+
+                if ((data.last_traded_price / 100) > target || (data.last_traded_price / 100) < negativeTarget/10) {
                     sendEmail();
                     web_socket.close();
                 }
